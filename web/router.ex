@@ -16,6 +16,8 @@ defmodule Rubl.Router do
   scope "/", Rubl do
     pipe_through :browser # Use the default browser stack
 
+    resources "/schools", SchoolController, only: [:index, :show, :new, :create]
+    resources "/users", UserController, only: [:index, :show, :new, :create]
     get "/", PageController, :index
   end
 

@@ -1,0 +1,2 @@
+<h1>Showing School</h1>
+<%= school_name(@school) %> <p>Number of Students: <%= number_of_students(@school) %></p>

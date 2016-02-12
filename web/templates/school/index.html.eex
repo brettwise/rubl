@@ -1,0 +1,11 @@
+<h1>Listing Schools</h1>
+
+<table class="table">
+  <%= for school <- @schools do %>
+  <tr>
+    <td><b><%= school_name(school) %></b></td>
+    <td><%= link "View", to: school_path(@conn, :show, school.id ) %></b></td>
+  </tr>
+  <% end %>
+</table>
+<%= link "Add New School", to: school_path(@conn, :new), class: "btn btn-primary"%>
