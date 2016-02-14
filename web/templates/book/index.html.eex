@@ -1,0 +1,11 @@
+<h1>Listing books</h1>
+
+<table class="table">
+  <%= for book <- @books do %>
+  <tr>
+    <td><b><%= get_title(book) %></b></td>
+    <td><%= link "View", to: book_path(@conn, :show, book.id ) %></b></td>
+  </tr>
+  <% end %>
+</table>
+<%= link "Add New book", to: book_path(@conn, :new), class: "btn btn-primary" %>

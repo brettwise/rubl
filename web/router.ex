@@ -1,4 +1,4 @@
-defmodule Rubl.Router do
+  defmodule Rubl.Router do
   use Rubl.Web, :router
 
   pipeline :browser do
@@ -18,6 +18,7 @@ defmodule Rubl.Router do
 
     resources "/schools", SchoolController, only: [:index, :show, :new, :create]
     resources "/users", UserController, only: [:index, :show, :new, :create]
+    resources "/books", BookController, only: [:index, :show, :new, :create]
     get "/", PageController, :index
   end
 
