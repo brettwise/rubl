@@ -1,5 +1,18 @@
 defmodule Rubl.Auth do
+  import Phoenix.Controller
+  alias Rubl.Router.Helpers
   import Plug.Conn
+
+  def authenticate_user(conn, _opts) do
+    if conn.assigns.current_user do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You must be logged in to access that page")
+      |> redirect(to: Helpers.page_path(conn, :index))
+      |> halt()
+    end
+  end
 
   def init(opts) do
     Keyword.fetch!(opts, :repo)

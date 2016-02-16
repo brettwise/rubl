@@ -24,6 +24,12 @@ defmodule Rubl.Router do
     resources "/books", BookController, only: [:index, :show, :new, :create]
   end
 
+  scope "/manage", Rubl do
+    pipe_through [:browser, :authenticate_user]
+
+    resources "/videos", VideoController
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Rubl do
   #   pipe_through :api

@@ -36,6 +36,7 @@ defmodule Rubl.Web do
 
       import Rubl.Router.Helpers
       import Rubl.Gettext
+      import Rubl.Auth, only: [authenticate_user: 2]
     end
   end
 
@@ -58,6 +59,8 @@ defmodule Rubl.Web do
   def router do
     quote do
       use Phoenix.Router
+      
+      import Rubl.Auth, only: [authenticate_user: 2]
     end
   end
 
