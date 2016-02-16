@@ -1,4 +1,4 @@
-defmodule Rubl.SessionsController do
+defmodule Rubl.SessionController do
   use Rubl.Web, :controller
 
   def new(conn, _) do
@@ -16,5 +16,12 @@ defmodule Rubl.SessionsController do
         |> put_flash(:error, "Invalid username/password combo")
         |> render("new.html")
     end
+  end
+
+  def delete(conn, _) do
+    conn
+    |> Rubl.Auth.logout()
+    |> put_flash(:info, "You have been logged out")
+    |> redirect(to: page_path(conn, :index))
   end
 end
